@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:include="admin/bootstrap :: head">
+    </th:block>
+</head>
+<body style="background:white; width:auto;height:800px;">
+    <div  th:replace="admin/bootstrap :: admin1">
+        <!-- 头部位置-->
+    </div>
+    <div style="margin-left:200px;width:auto;height:auto;"class="container">
+
+        <table class="table">
+            <tr>
+                <td>音乐ID</td>
+                <td>歌曲封面</td>
+                <td>歌曲名</td>
+                <td>歌手</td>
+                <td>时长</td>
+                <td>歌曲地址</td>
+                <td>歌词地址</td>
+                <td>所属专辑</td>
+                <td>操作</td>
+            </tr>
+
+            <tr th:each="model : ${musics}">
+                <td><span th:text="${model.musicId}"></span></td>
+                <td><img th:src="${model.musicimg}" style="width: 50px;height: 50px"></td>
+                <td><span th:text="${model.musicname}"></span></td>
+                <td><span th:text="${model.singer}"></span></td>
+                <td><span th:text="${model.time}"></span></td>
+                <td><span th:text="${model.url}"></span></td>
+                <td><span th:text="${model.lrc}"></span></td>
+                <form th:action="@{/admin/getLeibie(musicId=${model.musicId})}" method="post">
+                    <td>
+                        <select name="leibie" >
+                                <option value="0" th:selected="${model.leibieLeibiename == '0'}" >无</option>
+                                <option value="lover" th:selected="${model.leibieLeibiename == 'lover'}">lover</option>
+                                <option value="1989"  th:selected="${model.leibieLeibiename == '1989'}">1989</option>
+                                <option value="rep"   th:selected="${model.leibieLeibiename == 'rep'}">rep</option>
+                                <option value="luhan" th:selected="${model.leibieLeibiename == 'luhan'}">luhan</option>
+                        </select>
+                    </td>
+                    <td> <input type="submit" value="提交"></td>
+                </form>
+                <td>
+<!--                    <a class="glyphicon glyphicon-edit"></a>-->
+                    <a class="glyphicon glyphicon-trash" th:href="@{/admin/Mdelete(musicname=${model.musicname})}"></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

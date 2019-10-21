@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:include="index/index :: head">
+    </th:block>
+</head>
+<body>
+    <div th:replace="index/index :: nav">
+        <!--                    头部位置-->
+    </div>
+<div class="container" style="height: 1500px;">
+    <section class="comments">
+        <h1>动态</h1>
+        <a data-toggle="modal" data-target="#myModal" class="pull-right" style="color: black"><span class="glyphicon glyphicon-comment pull-right"></span>发表&nbsp;</a>
+        <br>
+        <hr>
+        <article th:each="model : ${com}" class="comment">
+            <div class="meta">
+                <h4><span th:text="${model.usersUsername}" class="author"></span>对歌曲:
+                    <span th:text="${model.musicMusicname}" style="color:darkgrey" class="author"></span>&nbsp;进行了评论:</h4>
+                <a href="#" class="date">
+                    <time datetime="2015-01-01" th:text="${model.time}"></time>
+                </a>
+            </div>
+            <div class="content">
+                <p th:text="${model.text}"></p>
+            </div>
+        </article>
+    </section>
+    <ul th:each="page:${#numbers.sequence(1,totalPage)}">
+        <li>
+            <a th:href="@{?(pageNum=${page-1})}" th:text="${page}"></a>
+        </li>
+
+    </ul>
+</div>
+<footer class="footer navbar-fixed-bottom ">
+    <div class="container" th:replace="index/index :: footer">
+    </div>
+</footer>
+    <!-- 模态框 -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form th:action="@{/music/userComment}" method="post">
+                    <input type="text" id="date" hidden name="date">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">有什么新鲜事告诉大家？</h4>
+                    </div>
+                    <div class="modal-body">
+                        标题:<input type="text" name="musicname" style="width: 570px;">
+                        内容:<input style="width:570px;height:100px" type="text" placeholder="请输入......" id="text" name="text">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <input type="submit" class="btn btn-primary" value="发表">
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+    <script th:src="@{/bootstrap-3.3.7-dist/jquery/jquery.min.js}"></script>
+    <script th:src="@{/bootstrap-3.3.7-dist/js/bootstrap.min.js}"></script>
+    <script th:inline="javascript" th:src="@{/bootstrap-3.3.7-dist/js/mc_music.js}"></script>
+</html>

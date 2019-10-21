@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:include="index/index :: head">
+    </th:block>
+</head>
+<body>
+<!--执行模糊查询搜索部分-->
+    <div th:replace="index/index :: nav">
+        <!--头部位置-->
+    </div>
+    <div class="container">
+        <div class="blog-header">
+            <h1>搜索</h1>
+            <table class="table">
+                <tr>
+                    <span th:if="${searchlist == null}" th:text="nothing"></span>
+                    <th th:text="歌名"></th>
+                    <th th:text="歌手"></th>
+                    <th th:text="操作"></th>
+                </tr >
+                <tr id="div1" th:each="model : ${searchlist}" >
+                    <td  th:text="${model.musicname}"></td>
+                    <td th:text="${model.singer}"></td>
+                    <td><a class="glyphicon glyphicon-headphones" onclick="btn(id)" th:id="${model.url}"></a> </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <footer class="footer navbar-fixed-bottom ">
+        <div class="container" th:replace="index/index :: footer">
+        </div>
+    </footer>
+</body>
+    <script th:src="@{/bootstrap-3.3.7-dist/jquery/jquery.min.js}"></script>
+    <script th:src="@{/bootstrap-3.3.7-dist/js/bootstrap.min.js}"></script>
+    <script th:inline="javascript" th:src="@{/bootstrap-3.3.7-dist/js/mc_music.js}"></script>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:include="index/index :: head">
+    </th:block>
+</head>
+<body>
+<!--按歌单查询-->
+    <div th:replace="index/index :: nav">
+        <!--                    头部位置-->
+    </div>
+<div class="container">
+        <div>
+            <img th:src="${leibie.leibieimg}" class="img-circle img-responsive center-block" style="width: 200px;height:200px">
+            <p th:text="${leibie.leibiename}"></p>
+        </div>
+        <p>
+        <table class="table">
+            <tr>
+                <th>歌名</th>
+                <th>歌手</th>
+                <th>专辑</th>
+                <th>播放</th>
+            </tr>
+            <tr th:each="model : ${music}">
+<!--                <td th:text="${model.leibieLiebiename}"></td>-->
+                <td th:text="${model.musicname}"></td>
+                <td th:text="${model.singer}"></td>
+                <td th:text="${model.leibieLeibiename}"></td>
+                <td>
+                    <a class="glyphicon glyphicon-headphones"onclick="btn(id);" th:id="${model.url}"></a>&nbsp;
+                    <a th:name="${model.musicname}" onclick="btn3(name);" data-toggle="modal" data-target="#myModal" class="glyphicon glyphicon-comment" ></a></a>&nbsp;
+                    <a th:href="@{/user/collect(name=${model.musicname})}"onclick="getCollection();" class="btn1 glyphicon glyphicon-heart"></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+<footer class="footer navbar-fixed-bottom ">
+    <div class="container" th:replace="index/index :: footer">
+    </div>
+</footer>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form th:action="@{/music/userComment}" method="post">
+                <input type="text" id="date" hidden name="date">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">有什么新鲜事告诉大家？</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="musicn" name="musicname" hidden>
+                    <input style="width:570px;height:100px" type="text" placeholder="请输入......" id="text" name="text">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <input type="submit" class="btn btn-primary" value="发表">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+    <script th:src="@{/bootstrap-3.3.7-dist/jquery/jquery.min.js}"></script>
+    <script th:src="@{/bootstrap-3.3.7-dist/js/bootstrap.min.js}"></script>
+    <script th:inline="javascript" th:src="@{/bootstrap-3.3.7-dist/js/mc_music.js}"></script>
+</html>

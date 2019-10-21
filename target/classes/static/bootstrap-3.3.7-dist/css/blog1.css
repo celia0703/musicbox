@@ -1,0 +1,55 @@
+body{
+    background-image:url("/image/login/user.jpg");
+}
+.li:hover{
+    background-color:#eeeeee;
+    transform:scale(1.1);
+    border-radius: 10px;
+}
+a:focus{text-decoration: none}
+.left{
+    width:40%;
+    height:100px;
+}
+.right{
+    width:40%;
+    height:100px;
+}
+.divbg{
+    background-color:rgba(0,0,0,0.3);
+    width: auto;
+    height: 145px;
+    margin:0 auto;
+    background-size: cover;
+    position: relative;
+}
+.divbg1{
+    background-color: rgba(0,0,0,0.3);
+}
+.span-b{
+    background:transparent;
+    position: absolute;
+    top:30px;
+    left:50%;
+    width:150px;
+    margin-left: -80px;
+    margin-bottom: auto;
+    z-index: 1
+}
+.img{
+    width: 110px;
+    height: 110px;
+}
+.btn{
+    /*background:transparent;*/
+    align-items: center;
+    width:100px;
+    height:36px;
+    color: grey;
+    /*bgcolor:white;*/
+}
+.btn:hover{
+    background: gainsboro;
+    transform:scale(1.1);
+}
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:include="admin/bootstrap :: head">
+    </th:block>
+</head>
+<body style="background:white; width:auto;height:800px;">
+<div  th:replace="admin/bootstrap :: admin1">
+    <!-- 头部位置-->
+</div>
+    <div style="margin-left:200px;width:auto;height:auto;"class="container">
+        <table class="table">
+            <tr>
+                <td>用户ID</td>
+                <td>用户名</td>
+                <td>性别</td>
+                <td>年龄</td>
+                <td>电话号码</td>
+                <td>操作</td>
+            </tr>
+            <tr th:each="model : ${users}">
+                <td><span th:text="${model.userId}"></span></td>
+                <td><span th:text="${model.username}"></span></td>
+                <td><span th:text="${model.gender}"></span></td>
+                <td><span th:text="${model.age}"></span></td>
+                <td><span th:text="${model.number}"></span></td>
+                <td>
+                    <a th:href="@{/admin/edit(username=${model.username})}"class="glyphicon glyphicon-edit"></a>
+                    <a th:href="@{/admin/delete(username=${model.username})}"class="glyphicon glyphicon-trash"></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

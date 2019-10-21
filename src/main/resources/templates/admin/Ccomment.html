@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:include="admin/bootstrap :: head">
+    </th:block>
+</head>
+<body style="background:white; width:auto;height:800px;">
+<div  th:replace="admin/bootstrap :: admin1">
+    <!-- 头部位置-->
+</div>
+<div style="margin-left:200px;width:auto;height:auto;"class="container">
+    <table class="table">
+        <tr>
+            <td>用户名</td>
+            <td>歌曲名</td>
+            <td>评论内容</td>
+            <td>评论时间</td>
+            <td>操作</td>
+        </tr>
+        <tr th:each="model : ${comlist}">
+            <td th:text="${model.commentId}">
+            <td th:text="${model.usersUsername}"></td>
+            <td th:text="${model.musicMusicname}"></td>
+            <td th:text="${model.text}"></td>
+            <td th:text="${model.time}"></td>
+            <td><a class="glyphicon glyphicon-trash" th:href="@{/admin/deleteBycom(id=${model.commentId})}"></a></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

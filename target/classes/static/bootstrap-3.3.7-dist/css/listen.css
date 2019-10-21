@@ -1,0 +1,124 @@
+body {
+    width:auto;
+    /*background-repeat:no repeat;*/
+    /*background-image:cover;*/
+}
+<!--停止和继续-->
+    .play{
+        animation-play-state: running !important;
+    }
+    .stop{
+        animation-play-state: paused !important;
+}
+.d1{
+    width:600px;
+    height:200px;
+    position:absolute;
+    top:70px;
+    left:380px;
+    transform-style:preserve-3d;/*保留3D所有子元素在3D界面转换 */
+    animation:xz 20s infinite linear;/*绑定元素，规定动画转动的时速*/
+    text-align:center;
+}
+.play{
+    animation-play-state: running;
+}
+.stop{
+    animation-play-state:paused;
+}
+.remove{
+    animation:xz 0s infinite linear;
+    width: 600px;
+    height:	500px;
+    transform: rotateY(90deg) translateZ(500px);
+    background: #a35959;
+}
+.d1  div{
+    width:600px;
+    height:200px;
+    position:absolute;
+    opacity:1;
+    display:flex;
+    /*flex-direction:center;*/
+    align-items:center;
+
+}
+.d1  div:nth-child(1){
+    width: 600px;
+    height:	500px;
+    transform: rotateY(90deg) translateZ(500px);
+}
+.d1  div:nth-child(2){
+    width: 600px;
+    height:500px;
+    transform:rotateY(180deg) translateZ(500px);
+}
+
+.d1 div:nth-child(3){
+    width: 600px;
+    height:500px;
+    transform:rotateY(270deg) translateZ(500px);
+}
+.d1  div:nth-child(4){
+    width: 600px;
+    height:500px;
+    transform:rotateY(360deg) translateZ(500px);
+}
+@keyframes xz{
+    0%{transform:rotateY(-0deg);}
+    50%{transform:rotateY(-180deg);}
+    100%{transform:rotateY(-360deg);}
+}
+.buttonStop{
+    background:transparent;
+    width:100px;
+    height:50px;
+    color:white;
+    text-align: center;
+    margin:250px;
+    border-radius:20px;
+    box-shadow:0 0 25px 2px rgba(0,0,0,.2);
+}
+
+
+.buttonStop:hover{
+    transform:scale(1.1);
+}
+/* .buttonPlay{
+    font-size: 30px;
+    text-align: center;
+} */
+.black_overlay{
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color:grey;
+    z-index:1001;
+    -moz-opacity: 0.8;
+    opacity:.50;
+}
+.white_content {
+    display: none;
+    position: absolute;
+    top: 30%;
+    left: 25%;
+    width: 50%;
+    height: 30%;
+    padding: 20px;
+    border: 2px solid #ADADAD;
+    z-index:1002;
+    overflow: auto;
+}
+.btnAll{
+    opacity:.80;
+    width:75px;
+    height:40px;
+    color:white;
+    text-align:center;
+    margin:20px;
+    border-radius:1px;
+    box-shadow:0 0 25px 2px rgba(0,0,0,.2);
+}

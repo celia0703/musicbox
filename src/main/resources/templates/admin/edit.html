@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:include="admin/bootstrap :: head">
+    </th:block>
+</head>
+<body style="background:white; width:auto;height:800px;">
+<div  th:replace="admin/bootstrap :: admin1">
+    <!-- 头部位置-->
+</div>
+<div style="margin-left:200px;width:auto;height:auto;"class="container">
+    <form method="post" th:action="@{/admin/update}">
+        <h2>修改信息</h2>
+        <div class="form-group">
+            <label for="userId">用户ID</label>
+            <input type="text" th:value="${users.userId}" class="form-control" id="userId" name="userId" placeholder="用户ID" readonly>
+        </div>
+        <div class="form-group">
+            <label for="username">用户名</label>
+            <input type="text" th:value="${users.username}" class="form-control" id="username" name="username" placeholder="用户名">
+        </div>
+        <div class="form-group">
+            <label for="gender">性别</label>
+            <input type="text" th:value="${users.gender}"  class="form-control" id="gender" name="gender" placeholder="性别">
+        </div>
+        <div class="form-group">
+            <label for="age">年龄</label>
+            <input type="text" th:value="${users.age}"  class="form-control" id="age" name="age" placeholder="年龄">
+        </div>
+        <div class="form-group">
+            <label for="number">电话</label>
+            <input type="text"  th:value="${users.number}" class="form-control" id="number" name="number" placeholder="电话">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>
+</body>
+</html>

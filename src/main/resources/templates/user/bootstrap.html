@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="head">
+    <link type="text/css" rel="stylesheet" th:href="@{/bootstrap-3.3.7-dist/css/bootstrap.min.css}">
+    <link type="text/css" rel="stylesheet" th:href="@{/bootstrap-3.3.7-dist/css/blog1.css}" >
+    <link type="text/css" rel="stylesheet" th:href="@{/bootstrap-3.3.7-dist/css/music.css}">
+    <link type="text/css" rel="stylesheet" th:href="@{/bootstrap-3.3.7-dist/css/comment.css}">
+    <script th:src="@{/bootstrap-3.3.7-dist/jquery/jquery.min.js}"></script>
+    <script th:src="@{/bootstrap-3.3.7-dist/js/bootstrap.min.js}"></script>
+</div>
+    <div th:fragment="user">
+        <div class="order">
+            <div class="left">
+                <hr class="line-left">
+            </div>
+                <span calss="txt"><img th:src="@{/image/music/musiclist/lover.jpg}" class="img-circle img-responsive center-block" style="width: 40px;height: 40px;"></span>
+            <div class="right">
+                <hr class="line-right">
+            </div>
+        </div>
+    </div>
+    <div th:fragment="user1"style=" background: transparent">
+        <div class="divbg" style="background: transparent">
+            <span class="span-b">
+                <span calss="txt"><img th:src="@{/image/music/musiclist/lover.jpg}" class="img-circle img-responsive center-block img"></span>
+            </span>
+        </div>
+                <div calss="divbg1"style="width:auto; height:50px;background: transparent">
+                    <div class="row clearfix" >
+		                <div class="col-md-12 column">
+			                <ul class="breadcrumb" style="background: transparent">
+				                <li>
+                                    <a th:href="@{/user/myZoe}" class="btn"><span>我喜欢</span></a>
+				                </li>
+				                <li>
+                                    <a th:href="@{/user/mycomment}" class="btn"><span>评论</span></a>
+				                </li>
+				                <li>
+                                    <a th:href="@{/user/mine}" class="btn"><span>个人信息</span></a>
+				                </li>
+<!--                                <li>-->
+<!--                                    <a th:href="@{/user/mysonglist}" class="btn"><span>歌单管理</span></a>-->
+<!--                                </li>-->
+			                </ul>
+		                </div>
+	                </div>
+                </div>
+            </span>
+        </div>
+    </div>
+    <div th:fragment="index">
+    </div>
+        <script th:fragment="click">
+        // 鼠标点击特效
+        var mouseSum = 0;
+        jQuery(document).ready(function($) {
+        $("body").click(function(e) {
+        var a = new Array();
+        a.push("🎵")
+        a.push("❄️")
+        a.push("🎤")
+        var $i = $("<span/>").text(a[mouseSum]);
+        mouseSum = (mouseSum + 1) % a.length;
+        var x = e.pageX,
+        y = e.pageY;
+        $i.css({
+        "z-index": 9999999,
+        "top": y - 20,
+        "left": x,
+        "position": "absolute",
+        "font-weight": "bold",
+        "color": "#6651ff"
+        });
+        $("body").append($i);
+        $i.animate({
+        "top": y - 180,
+        "opacity": 0
+        },
+        1500,
+        function() {
+        $i.remove();
+        });
+        });
+        });
+        </script>
+</body>
+</html>

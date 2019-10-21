@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:include="index/index :: head">
+    </th:block>
+</head>
+<body>
+<div th:replace="index/index :: nav">
+    <!--                    头部位置-->
+</div>
+<div class="container" >
+    <form>
+
+        <label>用户名</label>
+        <p>
+        <input type="text" value="">
+        <p>
+        <input class="input-group dates">
+    </form>
+</div>
+<footer class="footer navbar-fixed-bottom ">
+    <div class="container" th:replace="index/index :: footer">
+    </div>
+</footer>
+</body>
+</html>

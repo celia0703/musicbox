@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--管理员界面头部-->
+<div th:fragment="head">
+    <link type="text/css" rel="stylesheet" th:href="@{/bootstrap-3.3.7-dist/css/bootstrap.min.css}">
+    <link type="text/css" rel="stylesheet" th:href="@{/bootstrap-3.3.7-dist/css/blog1.css}" >
+    <link type="text/css" rel="stylesheet" th:href="@{/bootstrap-3.3.7-dist/css/fileinput.css}" >
+    <script th:src="@{/bootstrap-3.3.7-dist/jquery/jquery.min.js}"></script>
+    <script th:src="@{/bootstrap-3.3.7-dist/js/bootstrap.min.js}"></script>
+    <script th:src="@{/bootstrap-3.3.7-dist/js/fileinput.js}"></script>
+</div>
+<!--头部条-->
+<div th:fragment="header">
+
+</div>
+<div th:fragment="admin1">
+    <div style="width:200px;height:100%;position:absolute;background:whitesmoke;border-radius:5px" align="left">
+        <div class="row clearfix"style="width:1470px;">
+            <div class="col-md-12 column">
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">welcome</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">welcome</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <form class="navbar-form navbar-left" role="search">
+                            <div class="form-group">
+                                <input type="text" class="form-control"style="width: 300px"/>
+                            </div> <button type="submit" class="btn btn-default"    >搜索</button>
+                        </form>
+                    </div>
+
+                </nav>
+            </div>
+        </div>
+    <ul class="list-unstyled">
+        <hr>
+        <li class="text-center li"><img th:src="@{/image/music/musiclist/rep.jpg}" style="height:100px;width:100px;" class="img-circle img-responsive center-block"></li>
+        <hr>
+        <li class="text-center li">
+            <a th:href="@{/admin/Cuser}" class="">用户管理</a>
+        </li>
+        <hr>
+        <li class="text-center li">
+            <a th:href="@{/admin/Cmusic}">歌曲管理</a>
+        </li>
+        <hr>
+        <li class="text-center li">
+            <a th:href="@{/admin/CmusicList}">上传歌曲</a>
+        </li>
+        <hr>
+<!--        <li class="text-center li">-->
+<!--            <a th:href="@{/admin/Clist}">专辑管理</a>-->
+<!--        </li>-->
+<!--        <hr>-->
+        <li class="text-center li">
+            <a th:href="@{/admin/Ccomment}">评论管理</a>
+        </li>
+        <hr>
+<!--        <li class="text-center li">-->
+<!--            <a th:href="@{/admin/Clike}">推送管理</a>-->
+<!--        </li>-->
+        <hr>
+    </ul>
+</div>
+</body>
+</html>

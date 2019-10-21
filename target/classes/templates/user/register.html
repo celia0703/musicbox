@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/bootstrap-3.3.7-dist/css/login.css}">
+</head>
+<body>
+<div class="container">
+    <div class="left"></div>
+    <div class="right">
+        <div class="header">
+            <h2 class="animation a1">请注册</h2>
+            <p style="color:darkolivegreen"th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+        </div>
+        <form  class="form" th:action="@{/user/uregister}" method="post">
+            <input class="form-field animation a3" type="text" placeholder="用户名" id="username" name="username" autofocus="autofocus" maxlength="20"/>
+            <input class="form-field animation a4" type="password" placeholder="密码" id="userpwd" name="userpwd" maxlength="8"/>
+            <input type="text" name="gender" class="form-field animation a5" id="gender" placeholder="请输入性别">
+            <input type="text" name="age" class="form-field animation a6" id="age" placeholder="请输入年龄">
+            <input type="text" name="number" class="form-field animation a6" id="number" placeholder="请输入电话">
+            <button  class="animation a6" type="submit">注册</button>
+        </form>
+    </div>
+</div>
+</body>
+    <script th:include="user/bootstrap :: click" >
+    </script>
+</html>

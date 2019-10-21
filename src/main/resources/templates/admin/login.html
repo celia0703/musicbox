@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/bootstrap-3.3.7-dist/css/login.css}">
+</head>
+<body>
+<div class="container">
+    <div class="left"></div>
+    <div class="right">
+        <div class="header">
+            <h2 class="animation a1">欢迎回来</h2>
+            <p style="color:darkolivegreen"  th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+            <h4 class="animation a2">使用账户及密码登入管理员界面</h4>
+        </div>
+        <form  class="form" th:action="@{/admin/ulogin}" method="post">
+            <input type="username" class="form-field animation a3" placeholder="用户名" id="admin"  name="admin" autofocus="autofocus" >
+            <input type="password" class="form-field animation a4" placeholder="密码"  id="adminpwd" name="adminpwd">
+            <button  class="animation a6" type="submit">登录</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

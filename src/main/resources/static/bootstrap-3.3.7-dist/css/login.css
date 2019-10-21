@@ -1,0 +1,161 @@
+* {
+	/* 规定两个并排的框框 */
+	box-sizing: border-box;
+}
+body{
+	font-family: 'Rubik', sans-serif;
+	margin:0;
+	padding:0;
+}
+.container {
+	display: flex;
+	height: 100vh;
+}
+.left{
+	flex: 1;
+	transition: 1s;
+	background-image: url("/image/login/login.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.right{
+	/* 当规定内容溢出元素框是隐藏 */
+	overflow: hidden;
+	/* 任何一个元素都可以制定成弹性布局 */
+	display: flex;
+	/*一条轴线上显示不完将自动向下一排显示 */
+	flex-wrap: wrap;
+	/* 确定从左到右排列 */
+	flex-direction: column;
+	/* 弹性布局的对齐方式为居中对齐*/
+	justify-content: center;
+	/* 规定绑定到动画的keyframe */
+	-webkit-animation-name: right;
+	animation-name: right;
+	/* 规定动画的时间 */
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	/* 规定动画播放之前之后是否可见*/
+	/* both向前向后都可以使用 */
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	/*规定动画何时开始*/
+	-webkit-animation-delay: 1s;
+	animation-delay: 1s;
+}
+/* 展示介绍性内容 */
+.header > h2 {
+	margin: 0;
+	color:green;
+}
+.header > h4 {
+	margin-top: 10px;
+	font-weight: normal;
+	font-size: 15px;
+	color: rgba(0, 0, 0, 0.4);
+}
+.form {
+	max-width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+.form > p {
+	text-align: right;
+}
+.form > p > a{
+	color: #000;
+	font-size: 14px;
+}
+.form-field {
+	height: 46px;
+	padding: 0 16px;
+	border: 2px solid #ddd;
+	border-radius: 4px;
+	font-family: 'Rubik', sans-serif;
+	outline: 0;
+	transition: .2s;
+	margin-top: 20px;
+}
+.form-field:focus {
+	border-color: pink;
+}
+.form > button {
+	padding: 12px 10px;
+	border: 0;
+	/* 按钮的线性渐变颜色 */
+	background: linear-gradient(to right,green 0%, pink 100%);
+	border-radius: 3px;
+	margin-top: 10px;
+	color: #fff;
+	/* 字符串之间的空白间距 */
+	letter-spacing: 1px;
+	font-family: 'Rubik', sans-serif;
+	/* 鼠标指向光标的类型 */
+	cursor:pointer;
+}
+
+.animation {
+	-webkit-animation-name: move;
+	animation-name: move;
+	-webkit-animation-duration: .4s;
+	animation-duration: .4s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation-delay: 2s;
+	animation-delay: 2s;
+}
+.a1 {
+	-webkit-animation-delay: 2s;
+	animation-delay: 2s;
+}
+
+.a2 {
+	-webkit-animation-delay: 2.1s;
+	animation-delay: 2.1s;
+}
+
+.a3 {
+	-webkit-animation-delay: 2.2s;
+	animation-delay: 2.2s;
+}
+
+.a4 {
+	-webkit-animation-delay: 2.3s;
+	animation-delay: 2.3s;
+}
+
+.a5 {
+	-webkit-animation-delay: 2.4s;
+	animation-delay: 2.4s;
+}
+
+.a6 {
+	-webkit-animation-delay: 2.5s;
+	animation-delay: 2.5s;
+}
+/* 名字叫move的动画变化规则 */
+@keyframes move {
+	0% {
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-40px);
+	}
+	100% {
+		opacity: 1;
+		/* 就规定元素是否可见，不会占用空间 */
+		visibility: visible;
+		transform: translateY(0);
+	}
+}
+@keyframes right {
+	0% {
+		opacity: 0;
+		width: 0;
+	}
+	100% {
+		opacity: 1;
+		padding: 10px 80px;
+		width: 440px;
+	}
+}

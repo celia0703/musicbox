@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/bootstrap-3.3.7-dist/css/bootstrap.min.css}">
+    <link type="text/css" rel="stylesheet" th:href="@{/bootstrap-3.3.7-dist/css/listen.css}">
+    <script type="text/javascript" th:src="@{/bootstrap-3.3.7-dist/jquery/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/bootstrap-3.3.7-dist/js/listen.js}"></script>
+    <script type="text/javascript" th:src="@{/bootstrap-3.3.7-dist/js/bootstrap.min.js}"></script>
+</head>
+<body style="background:url(/image/listen/stbg1.gif);background-size:1400px 800px"/>
+<div class="d1">
+    <!--第一张 -->
+    <div style="background:url(/image/listen/wildest.jpg) no-repeat;background-size:600px 500px;">
+        <button th:onmouseover="stop()" th:onmouseout="play()"class="buttonStop btn1">MUSIC</button>
+    </div>
+    <!--第二张 -->
+    <div style="background:url(/image/listen/wildest.jpg) no-repeat;background-size:600px 500px;">
+        <button th:onmouseover="stop()" th:onmouseout="play()" class="buttonStop btn2">MUSIC</button>
+    </div>
+    <!--第三张 -->
+    <div style="background:url(/image/listen/wildest.jpg) no-repeat;background-size:600px 500px;">
+        <button th:onmouseover="stop()" th:onmouseout="play()" class="buttonStop btn3">MUSIC</button>
+    </div>
+    <!--第四张 -->
+    <div style="background:url(/image/listen/wildest.jpg) no-repeat;background-size:600px 500px;">
+        <button th:onmouseover="stop()" th:onmouseout="play()" class="buttonStop btn4">MUSIC</button>
+    </div>
+</div>
+<!-- 弹出的窗口1-->
+<div id="light1" class="white_content" >
+    <h2>Wildest Dreams</h2><p>
+    <audio controls ><!-- 歌曲准备就绪马上播放 -->
+        <source th:src="@{/static/music/wildest.mp3}"/>
+    </audio>
+    <input type="button" class="btnExit1 btnAll" value="关闭">
+</div>
+<div id="fade1" class="black_overlay"></div>
+<!-- 弹出的窗口2-->
+<div id="light2" class="white_content" ><p>
+    <h2>ME</h2>
+    <audio controls><!-- 歌曲准备就绪马上播放 -->
+        <source th:src="@{/static/music/ME.mp3}"/>
+    </audio>
+    <input type="button" class="btnExit2 btnAll" value="关闭">
+</div>
+<div id="fade2" class="black_overlay"></div>
+<!-- 弹出的窗口3-->
+<div id="light3" class="white_content" >
+    <h2>Shallow</h2><p>
+    <audio controls><!-- 歌曲准备就绪马上播放 -->
+        <source th:src="@{/static/music/Shallow.mp3}"/>
+    </audio>
+    <input type="button" class="btnExit3 btnAll" value="关闭">
+</div>
+<div id="fade3" class="black_overlay"></div>
+<!-- 弹出的窗口4-->
+<div id="light4" class="white_content" ><p>
+    <h2>wish you were gay</h2><p>
+        <audio controls><!-- 歌曲准备就绪马上播放 -->
+            <source th:src="@{/static/music/wishyouweregay.mp3}"/>
+        </audio>
+        <input type="button" class="btnExit4 btnAll" value="关闭">
+</div>
+    <div id="fade4" class="black_overlay"></div>
+    <script th:inline="javascript">
+        var mouse = document.getElementsByClassName('d1')[0];
+        function stop() {
+            mouse.setAttribute('class','stop d1');
+        }
+        function play() {
+            mouse.setAttribute('class', 'play d1');
+        }
+    </script>
+</body>
+</html>

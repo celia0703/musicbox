@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:include="user/bootstrap :: head">
+    </th:block>
+</head>
+<body>
+<div th:replace="index/index :: nav">
+    <!-- 头部位置-->
+</div>
+<div th:replace="user/bootstrap :: user1">
+</div>
+<div class="subframe" style="width:auto;height:1000px;background:white">
+    <div class="container">
+
+    </div>
+</div>
+<footer class="footer navbar-fixed-bottom ">
+    <div class="container" th:replace="index/index :: footer">
+    </div>
+</footer>
+</body>
+    <script th:include="user/bootstrap :: click" >
+    </script>
+</html>
